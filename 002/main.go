@@ -8,13 +8,10 @@ import (
 func fibonacci(n int) int {
 	a := 1
 	b := 1
-	temp := 1
 	sum := 0
 
 	for {
-		temp = b
-		b = a + b
-		a = temp
+		a, b = b, a+b
 
 		if b > n {
 			break
@@ -34,5 +31,5 @@ func main() {
 	fmt.Println("Answer is", answer)
 
 	elasped := time.Since(start)
-	fmt.Println("Solution took %s", elasped)
+	fmt.Printf("Solution took %s", elasped)
 }
