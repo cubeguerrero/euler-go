@@ -1,0 +1,42 @@
+package main
+
+import "testing"
+
+func TestTriangularNumber(t *testing.T) {
+	want := 15
+	got := triangularNumber(5)
+	if got != want {
+		t.Errorf("triangularNumber(%#v), got: %d want: %d", 5, got, want)
+	}
+}
+
+func TestGetDivisors(t *testing.T) {
+	want := []int{1, 28, 2, 14, 4, 7}
+	got := getDivisors(28)
+
+	if !equal(got, want) {
+		t.Errorf("getDivisors(%#v) got: %v want: %v", 28, got, want)
+	}
+}
+
+func TestSolution(t *testing.T) {
+	want := 28
+	got := solution(5)
+	if got != want {
+		t.Errorf("solution(%#v) got: %d, want: %d", 5, got, want)
+	}
+}
+
+func equal(a, b []int) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	for i, v := range a {
+		if b[i] != v {
+			return false
+		}
+	}
+
+	return true
+}
