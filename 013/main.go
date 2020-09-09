@@ -41,13 +41,6 @@ func bigIntSum(nums []*big.Int) *big.Int {
 	return sum
 }
 
-// func getDigits(num *big.Int) []*big.Int {
-// 	nums := []*big.Int{}
-// 	for num.Cmp(big.NewInt(0)) {
-
-// 	}
-// }
-
 func solution() string {
 	numbers := readNumbers()
 	sum := bigIntSum(numbers)
