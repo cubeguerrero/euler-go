@@ -33,6 +33,18 @@ func TestPow(t *testing.T) {
 	}
 }
 
+func BenchmarkSolution(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		solution()
+	}
+}
+
+func BenchmarkSolutionNaiveConcurrent(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		solutionNaiveConcurrent()
+	}
+}
+
 func Equal(a, b []int) bool {
 	if len(a) != len(b) {
 		return false

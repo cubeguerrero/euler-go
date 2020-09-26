@@ -31,7 +31,7 @@ func pow(a, b int) int {
 	return total
 }
 
-func solution() {
+func solution() int {
 	sum := 0
 	for i := 2; i <= 354294; i++ {
 		digits := getDigits(i)
@@ -39,11 +39,25 @@ func solution() {
 			sum += i
 		}
 	}
-	fmt.Println(sum)
+	return sum
+}
+
+func solutionNaiveConcurrent() int {
+	sum := 0
+	for i := 2; i <= 354294; i++ {
+		go func(num, pow int, total *int) {
+			digits := getDigits(num)
+			if sumOfPower(digits, pow) == num {
+				*total += num
+			}
+		}(i, 5, &sum)
+	}
+
+	return sum
 }
 
 func main() {
 	start := time.Now()
-	solution()
+	fmt.Println(solutionNaiveConcurrent())
 	fmt.Printf("Solution took %v", time.Since(start))
 }
