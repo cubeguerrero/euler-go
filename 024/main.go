@@ -12,7 +12,6 @@ func swap(nums []int, i, j int) {
 	nums[j] = temp
 }
 
-// 0 1 2
 func nextPermutation(nums []int) bool {
 	i := len(nums) - 1
 	for i > 0 && nums[i-1] >= nums[i] {
